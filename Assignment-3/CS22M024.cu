@@ -52,7 +52,7 @@ __global__ void Indegree_levelZero(int *d_csr, int *d_offset, int *d_apr, int L,
         for(int k=s;k<e;k++)
         {
         	atomicInc((unsigned int *)&d_aid[d_csr[k]], max_value);
-          atomicMax(&act[1],d_csr[k]);
+                atomicMax(&act[1],d_csr[k]);
         }
 	}
 }
@@ -88,7 +88,7 @@ __global__ void Indegree_level1toL(int *d_csr, int *d_offset, int *d_apr, int L,
 		    {
 		    	atomicInc((unsigned int *)&d_aid[d_csr[p]], max_value);
 		    }
-        atomicMax(&act[lid+1],d_csr[p]);
+                    atomicMax(&act[lid+1],d_csr[p]);
 		           
 		}
 	}
